@@ -1,0 +1,28 @@
+{
+  "name": "vrbo-group-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellwcarey/VRBOGroupProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russellwcarey/VRBOGroupProject.git"
+  },
+  "homepage": "https://github.com/russellwcarey/VRBOGroupProject.git#readme",
+  "devDependencies": {
+    "chromedriver": "^84.0.1",
+    "nightwatch": "^1.3.7"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "description": ""
+}
