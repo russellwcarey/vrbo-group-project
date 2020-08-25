@@ -50,10 +50,10 @@ module.exports = {
 
     },
 
-    
-    "save function logged out":browser=>{
+
+    "save function logged out": browser => {
         obj
-        .replay()
+            .replay()
     },
     // "save function logged in":browser=>{
     //     obj
