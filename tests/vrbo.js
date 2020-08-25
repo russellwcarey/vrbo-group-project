@@ -22,7 +22,8 @@ var search = (browser, destination) => {
         .click('button[type="submit"]')
         .useXpath()
         .pause(500)
-        .verify.containsText('@search', destination.results)
+        .verify.elementPresent('@search', `"${destination.results}"`)
+        .clearValue('@search')
 
 }
 
