@@ -1,92 +1,127 @@
 
-var vrboAsset = require('../testAssests/vrboAsset')
+var vrboAsset = require('../testAsset/vrboAsset')
 
-var vrboNav ={
-    
-    replay: function(browser, foreach){
+var vrboNav = {
+
+    replay: function (browser, foreach) {
         this
-        .firstInfoEnter()
-        searchArray.forEach(search=>{
+            .firstInfoEnter()
+        searchArray.forEach(search => {
             this.secondInfoEnter(browser, search)
-            
+
         })
     },
-        // login: function(browser, login){
-        //     this
-        //     // .click('@loginDropdown')
-        //     // .setValue('@searchLocation', 'new york')
-        //     .pause(1100)
-        //     .click('@login')
-        //     .pause(2000)
-        //     .setValue('@email', 'cameronwalk9@gmail.com')
-        //     .click('@getStartedBtn')
-        //     .setValue('@password', 'stinger0')
-        //     return this
-        // },
-        // cleanUp: function(browser, cleanUp){
-        //     this
-        //     .click('//*/div[@class="site-header-nav__scratchpad"]')
-        //     .click('@deleteBoard')
-        //     .click('@confirmDelete')
-        //     return this
-        // },
-    
-
-    firstInfoEnter: function (browser, area){
+    searchHomePage: function (destinationSearch, destinationResults) {
         this
-        .useXpath()
-        .pause(1000)
+            .click('@searchLocation')
+            .setValue('@searchLocation', destinationSearch)
+            .pause(1000)
+            .click('@spotOne')
+            .pause(500)
+            .useXpath()
+            .click('(//*[text()="5"])[2]')
+            .click('(//*[text()="12"])[2]')
+            .pause(500)
+            .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[2]')
+            .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[2]')
+            .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[4]')
+            .useCss()
+            .click('button[type="submit"]')
+            .useXpath()
+            .pause(500)
+            .verify.elementPresent('@searchLocation', `"${destinationResults}"`)
+            .clearValue('@searchLocation')
+        return this
+
+    },
+    searchPage: function (browser, destination) {
+        this
+            .click('@search')
+            .setValue('@search', destination.search)
+            .pause(1000)
+            .click('@spotOne')
+            .pause(500)
+            .useXpath()
+            .verify.elementPresent('@search', `"${destination.results}"`)
+            .clearValue('@search')
+        return this
+    },
+    login: function (browser, login) {
+        this
+            // .click('@loginDropdown')
+            // .setValue('@searchLocation', 'new york')
+            .pause(1100)
+            .click('@login')
+            .pause(2000)
+            .setValue('@email', 'cameronwalk9@gmail.com')
+            .click('@getStartedBtn')
+            .setValue('@password', 'stinger0')
+        return this
+    },
+    cleanUp: function (browser, cleanUp) {
+        this
+            .click('//*/div[@class="site-header-nav__scratchpad"]')
+            .click('@deleteBoard')
+            .click('@confirmDelete')
+        return this
+    },
+
+
+    firstInfoEnter: function (browser, area) {
+        this
+            .useXpath()
+            .pause(1000)
         this.setValue('@searchLocation', 'Georgia')
-        .pause(1000)
-        .click('@searchBtn')
-        .click('@saveBtn1')
-        .setValue('@nameBoardInput', "For Fun")
-        .click('@saveProp')
-        .click('@done')
-        .pause(1000)
-        .click('//*/div[@class="site-header-nav__scratchpad"]')
-        .click('@locationClick')
-        .pause(1000)
-        .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
-        .click('@homeButton')
-        .click('//*/div[@class="site-header-nav__scratchpad"]')
-        .click('@locationClick')
-        .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
-        .click('@homeButton')
+            .pause(1000)
+            .click('@searchBtn')
+            .click('@saveBtn1')
+            .setValue('@nameBoardInput', "For Fun")
+            .click('@saveProp')
+            .click('@done')
+            .pause(1000)
+            .click('//*/div[@class="site-header-nav__scratchpad"]')
+            .click('@locationClick')
+            .pause(1000)
+            .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
+            .click('@homeButton')
+            .click('//*/div[@class="site-header-nav__scratchpad"]')
+            .click('@locationClick')
+            .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
+            .click('@homeButton')
         // searchArray.forEach(search=>{
         //     this.infoEnter(browser, search)
         // })
         return this
     },
-    secondInfoEnter: function (browser, area){
+    secondInfoEnter: function (browser, area) {
         this
-        .useXpath()
-        .pause(1000)
-        .clearValue('@searchLocation')
-        .pause(1000)
+            .useXpath()
+            .pause(1000)
+            .clearValue('@searchLocation')
+            .pause(1000)
         this.setValue('@searchLocation', area.sel)
-        .pause(1000)
-        .click('@searchBtn')
-        .click('@saveBtn1')
-        // .setValue('@nameBoardInput', "For Fun")
-        .pause(1000)
-        .click('@saveMore')
-        .click('@done')
-        .pause(1000)
-        .click('//*/div[@class="site-header-nav__scratchpad"]')
-        .click('@locationClick')
-        .pause(1000)
-        .verify.elementPresent(`//*/span[contains(text(),"${area.result}")]`)
-        .click('@homeButton')
-        .click('//*/div[@class="site-header-nav__scratchpad"]')
-        .click('@locationClick')
-        .verify.elementPresent(`//*/span[contains(text(),"${area.result}")]`)
-        .click('@homeButton')
+            .pause(1000)
+            .click('@searchBtn')
+            .click('@saveBtn1')
+            // .setValue('@nameBoardInput', "For Fun")
+            .pause(1000)
+            .click('@saveMore')
+            .click('@done')
+            .pause(1000)
+            .click('//*/div[@class="site-header-nav__scratchpad"]')
+            .click('@locationClick')
+            .pause(1000)
+            .verify.elementPresent(`//*/span[contains(text(),"${area.result}")]`)
+            .click('@homeButton')
+            .click('//*/div[@class="site-header-nav__scratchpad"]')
+            .click('@locationClick')
+            .verify.elementPresent(`//*/span[contains(text(),"${area.result}")]`)
+            .click('@homeButton')
         // searchArray.forEach(search=>{
         //     this.infoEnter(browser, search)
         // })
         return this
-    
+
     },
 }
 module.exports = {
@@ -119,7 +154,7 @@ module.exports = {
         },
         tripBoard: {
             selector: '//*/div[@class="site-header-nav__scratchpad"]',
-            locateStategy: 'xpath'
+            locateStrategy: 'xpath'
         },
         locationClick: {
             selector: '//*/div[@class="three-pack__image three-pack__image--rounded-top-and-bottom-left three-pack__image--left-panel"]',
@@ -129,36 +164,37 @@ module.exports = {
             selector: '//*/img[@alt="Vrbo logo"]',
             locateStrategy: 'xpath'
         },
-        saveMore:{
-            selector:'//*/button[@class="btn btn-default SaveButton btn-sm"]',
+        saveMore: {
+            selector: '//*/button[@class="btn btn-default SaveButton btn-sm"]',
             locateStrategy: 'xpath'
         },
-        login:{
-            selector:'(//*/li[@class="site-header-login__item"][0])',
-            locateStrategy:'xpath'
+        login: {
+            selector: '(//*/li[@class="site-header-login__item"][0])',
+            locateStrategy: 'xpath'
         },
-        email:{
-            selector:'//*/input[@type="email"]',
-            locateStrategy:'xpath'
+        email: {
+            selector: '//*/input[@type="email"]',
+            locateStrategy: 'xpath'
         },
-        getStartedBtn:{
-            selector:'//*/button[@type="submit"]',
-            locateStrategy:'xpath'
+        getStartedBtn: {
+            selector: '//*/button[@type="submit"]',
+            locateStrategy: 'xpath'
         },
-        password:{
-            selector:'//*/input[@type="password"]',
-            locateStrategy:'xpath'
+        password: {
+            selector: '//*/input[@type="password"]',
+            locateStrategy: 'xpath'
         },
-        confirmDelete:{
-            selector:'//*/button[@data-wdio="tripboard-summary__hit-delete--confirm"]',
-            locateStrategy:'xpath'
+        confirmDelete: {
+            selector: '//*/button[@data-wdio="tripboard-summary__hit-delete--confirm"]',
+            locateStrategy: 'xpath'
         },
-        deleteBoard:{
-            selector:'//*/button[@class="btn btn-link tripboard-summary-hit__menu-remove btn-xs"]',
-            locateStrategy:'xpath'
+        deleteBoard: {
+            selector: '//*/button[@class="btn btn-link tripboard-summary-hit__menu-remove btn-xs"]',
+            locateStrategy: 'xpath'
         },
-        loginDropdown:{
-            selector:'//*/button[@id="site-header__login"]'
+        loginDropdown: {
+            selector: '//*/button[@id="site-header__login"]',
+            locateStrategy: 'xpath'
         },
         spotOne: 'div[data-suggestion-key="0"]',
 
