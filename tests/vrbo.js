@@ -2,14 +2,15 @@
 var obj = {}
 
 var vrboObject = require('../pageObjects/vrboPage')
+var citySearch = require('../testAsset/vrboAsset')
 
 module.exports = {
     beforeEach: browser => {
         obj = browser.page.vrboPage()
-        obj
-            .navigate()
+        obj.navigate()
+        browser.maximizeWindow();
     },
-    after: browser => {
+    afterEach: browser => {
         obj.end()
     },
     'first search': browser => {
@@ -17,9 +18,8 @@ module.exports = {
         .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
     },
     'After initial search': browser => {
-        citySearch.forEach(test => {
-            searchPage(obj, test)
-        })
+        obj
+        .searchForEach()
     },
     "save function logged out":browser=>{
         obj

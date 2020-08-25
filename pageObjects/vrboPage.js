@@ -2,6 +2,13 @@
 var vrboAsset = require('../testAsset/vrboAsset')
 
 var vrboNav = {
+    searchForEach: function (browser, searchPage) {
+        this
+        citySearch.forEach(test => {
+            this.searchPage(browser, test)
+        })
+    
+    },
 
     replay: function (browser, foreach) {
         this
@@ -16,8 +23,8 @@ var vrboNav = {
             .click('@searchLocation')
             .setValue('@searchLocation', destinationSearch)
             .pause(1000)
-            .click('@spotOne')
-            .pause(500)
+            .click('div[data-suggestion-key="0"]')
+            // .pause(500)
             .useXpath()
             .click('(//*[text()="5"])[2]')
             .click('(//*[text()="12"])[2]')
@@ -36,14 +43,19 @@ var vrboNav = {
     },
     searchPage: function (browser, destination) {
         this
-            .click('@search')
-            .setValue('@search', destination.search)
             .pause(1000)
-            .click('@spotOne')
-            .pause(500)
+            .clearValue('@searchLocation')
+            .pause(1000)
+            this.setValue('@searchLocation', destination.search)
+            .pause(1000)
             .useXpath()
-            .verify.elementPresent('@search', `"${destination.results}"`)
-            .clearValue('@search')
+            .click('@searchBtn')
+            .pause(500)
+            this.useXpath()
+            .verify.elementPresent('@searchLocation', `"${destination.results}"`)
+            .pause(1000)
+            .click('@homeButton')
+           
         return this
     },
     login: function (browser, login) {
@@ -71,6 +83,8 @@ var vrboNav = {
         this
             .useXpath()
             .pause(1000)
+            .clearValue('@searchLocation')
+            .pause(1000)
         this.setValue('@searchLocation', 'Georgia')
             .pause(1000)
             .click('@searchBtn')
@@ -88,6 +102,10 @@ var vrboNav = {
             .click('@locationClick')
             .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
             .click('@homeButton')
+            // .click('//div[@class="picker__overlay picker__overlay--selectable"][3]')
+            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
+            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
+            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[2]')
         // searchArray.forEach(search=>{
         //     this.infoEnter(browser, search)
         // })
