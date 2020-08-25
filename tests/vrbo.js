@@ -15,21 +15,22 @@ module.exports = {
     },
     'first search': browser => {
         obj
-        .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
+            .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
     },
     'After initial search': browser => {
         obj
         .searchForEach()
     },
-    "save function logged out":browser=>{
+    "save function logged out": browser => {
+
         obj
-        .replay()
+            .replay()
     },
-    "save function logged in":browser=>{
+    "save function logged in": browser => {
         obj
-        .login()
-        .replay()
-        .cleanUp()
+            .login()
+            .replay()
+            .cleanUp()
     }
 
 }
