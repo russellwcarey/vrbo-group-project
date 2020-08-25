@@ -4,6 +4,7 @@ var search = (browser, destination) => {
         .setValue('@search', destination.search)
         .pause(1000)
         .click('@spotOne')
+        .pause(500)
         .useXpath()
         .click('(//*[text()="5"])[2]')
         .click('(//*[text()="12"])[2]')
