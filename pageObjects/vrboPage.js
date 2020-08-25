@@ -1,3 +1,4 @@
+
 var vrboAsset = require('../testAssests/vrboAsset')
 
 var vrboNav ={
@@ -10,25 +11,25 @@ var vrboNav ={
             
         })
     },
-        login: function(browser, login){
-            this
-            // .click('@loginDropdown')
-            // .setValue('@searchLocation', 'new york')
-            .pause(1100)
-            .click('@login')
-            .pause(2000)
-            .setValue('@email', 'cameronwalk9@gmail.com')
-            .click('@getStartedBtn')
-            .setValue('@password', 'stinger0')
-            return this
-        },
-        cleanUp: function(browser, cleanUp){
-            this
-            .click('//*/div[@class="site-header-nav__scratchpad"]')
-            .click('@deleteBoard')
-            .click('@confirmDelete')
-            return this
-        },
+        // login: function(browser, login){
+        //     this
+        //     // .click('@loginDropdown')
+        //     // .setValue('@searchLocation', 'new york')
+        //     .pause(1100)
+        //     .click('@login')
+        //     .pause(2000)
+        //     .setValue('@email', 'cameronwalk9@gmail.com')
+        //     .click('@getStartedBtn')
+        //     .setValue('@password', 'stinger0')
+        //     return this
+        // },
+        // cleanUp: function(browser, cleanUp){
+        //     this
+        //     .click('//*/div[@class="site-header-nav__scratchpad"]')
+        //     .click('@deleteBoard')
+        //     .click('@confirmDelete')
+        //     return this
+        // },
     
 
     firstInfoEnter: function (browser, area){
@@ -158,6 +159,8 @@ module.exports = {
         },
         loginDropdown:{
             selector:'//*/button[@id="site-header__login"]'
-        }
+        },
+        spotOne: 'div[data-suggestion-key="0"]',
+
     }
 }
