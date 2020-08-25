@@ -1,3 +1,10 @@
+
+var obj = {}
+
+var vrboObject = require('../pageObjects/vrboPage')
+// var vroboAsset=require('..')
+
+
 var search = (browser, destination) => {
     browser
         .click('@search')
@@ -16,7 +23,8 @@ var search = (browser, destination) => {
         .click('button[type="submit"]')
         .useXpath()
         .pause(500)
-        .verify.containsText('@search', destination.results)
+        .verify.elementPresent('@search', `"${destination.results}"`)
+        .clearValue('@search')
 
 }
 
@@ -42,5 +50,18 @@ module.exports = {
         })
 
 
-    }
+    },
+
+    
+    "save function logged out":browser=>{
+        obj
+        .replay()
+    },
+    // "save function logged in":browser=>{
+    //     obj
+    //     .login()
+    //     .replay()
+    //     .cleanUp()
+    // }
+
 }
