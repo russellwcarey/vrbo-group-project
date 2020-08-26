@@ -1,5 +1,5 @@
 var obj = {}
-var vrboObject = require('./pageObjects/vrboPage')
+var vrboObject = require('../pageObjects/vrboPage')
 
 module.exports = [
     searchArray = [

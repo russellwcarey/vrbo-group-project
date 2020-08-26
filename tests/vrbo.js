@@ -13,24 +13,24 @@ module.exports = {
     afterEach: browser => {
         obj.end()
     },
-    'first search': browser => {
-        obj
-            .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
-    },
-    'After initial search': browser => {
-        obj
-        .searchForEach()
-    },
-    "save function logged out": browser => {
+    // 'first search': browser => {
+    //     obj
+    //         .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
+    // },
+    // 'After initial search': browser => {
+    //     obj
+    //     .searchForEach()
+    // },
+    // "save function logged out": browser => {
 
-        obj
-            .replay()
-    },
+    //     obj
+    //         .replay()
+    // },
     "save function logged in": browser => {
         obj
             .login()
-            .replay()
-            .cleanUp()
+            //.replay()
+            //.cleanUp()
     }
 
 }

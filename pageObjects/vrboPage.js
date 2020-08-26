@@ -60,7 +60,7 @@ var vrboNav = {
     },
     login: function (browser, login) {
         this
-            // .click('@loginDropdown')
+            .click('@loginDropdown')
             // .setValue('@searchLocation', 'new york')
             .pause(1100)
             .click('@login')
@@ -193,7 +193,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         login: {
-            selector: '(//*/li[@class="site-header-login__item"][0])',
+            selector: '(//*/a[@rel="nofollow"])[2]',
             locateStrategy: 'xpath'
         },
         email: {
