@@ -29,8 +29,8 @@ module.exports = {
     "save function logged in": browser => {
         obj
             .login()
-            //.replay()
-            //.cleanUp()
+            .replay2()
+            .cleanUp()
     }
 
 }

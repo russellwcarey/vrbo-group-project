@@ -9,6 +9,14 @@ var vrboNav = {
         })
 
     },
+    replay2: function (browser, foreach) {
+        this
+           
+        searchArray.forEach(search => {
+            this.secondInfoEnter(browser, search)
+
+        })
+    },
 
     replay: function (browser, foreach) {
         this
@@ -66,8 +74,11 @@ var vrboNav = {
             .click('@login')
             .pause(2000)
             .setValue('@email', 'cameronwalk9@gmail.com')
+            .pause(1000)
             .click('@getStartedBtn')
             .setValue('@password', 'stinger0')
+            .pause(1000)
+            .click('@loginButton')
         return this
     },
     cleanUp: function (browser, cleanUp) {
@@ -196,12 +207,16 @@ module.exports = {
             selector: '(//*/a[@rel="nofollow"])[2]',
             locateStrategy: 'xpath'
         },
+        loginButton:{
+            selector: '(//*/button[@name="login"])',
+            locateStrategy:'xpath'
+        },
         email: {
-            selector: '//*/input[@type="email"]',
+            selector: '//*/input[@name="emailAddress"]',
             locateStrategy: 'xpath'
         },
         getStartedBtn: {
-            selector: '//*/button[@type="submit"]',
+            selector: '//*/button[@id="lex-initial-button"]',
             locateStrategy: 'xpath'
         },
         password: {
