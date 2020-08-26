@@ -215,8 +215,9 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         spotOne: {
-            //updated selector, did not appear to be completed - missing locateStrategy and brackets
-            //also unsure of proper xpath - need to speak to teammates about what is needed
+            // Did a quick update on the below selector, as it did not appear to be completed
+            // It was missing locateStrategy and open/close brackets
+            // Also unsure of proper xpath - need to speak to teammates about what was/is needed
             selector: 'div[data-suggestion-key="0"]',
             locateStrategy: 'xpath'
         },
@@ -240,7 +241,7 @@ module.exports = {
             selector: '//*/button[@class="btn btn-primary landing-page__button btn-sm"]',
             locateStrategy: 'xpath'
         },
-        // This is where it switches to the base URL of https://www.vrbo.com/tripboard
+        // This is where it is supposed to switch to the base URL of https://www.vrbo.com/tripboard
         // Because I did things differently in my personal project, I'm not 100% sure whether 
         // I should be creating a new pageObject at this point
         newTbCard: {
