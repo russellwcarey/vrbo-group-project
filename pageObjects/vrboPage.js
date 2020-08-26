@@ -140,7 +140,13 @@ var vrboNav = {
         // })
         return this
 
-    },
+    }
+    // firstTripBoard: function (browser, area) {
+    //     this
+    //         .useXpath()
+    //         .pause(1000)
+
+
 }
 module.exports = {
     url: "https://www.vrbo.com/",
@@ -215,11 +221,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         spotOne: {
-            // Did a quick update on the below selector, as it did not appear to be completed
-            // It was missing locateStrategy and open/close brackets
-            // Also unsure of proper xpath - need to speak to teammates about what was/is needed
             selector: 'div[data-suggestion-key="0"]',
-            locateStrategy: 'xpath'
         },
         tripBoardBtn: {
             selector: '//*/span[@class="site-header-nav__icon-label"]',
@@ -255,11 +257,10 @@ module.exports = {
         inviteFriendsLogin: {
             selector: '//*/button[@class="btn btn-primary"][0]',
             locateStrategy: 'xpath'
-        },
-        // Double checking strategy - not sure if signup is needed for automation
-        // Also, possible duplicate selector?
-        vrboSignUp: {
-            selector: '//*/'
         }
+        // // Double checking strategy - not sure if signup is needed for automation
+        // // Also, possible duplicate selector?
+        // vrboSignUp: {
+        //     selector: '//*/'
     }
 }
