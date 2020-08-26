@@ -7,7 +7,7 @@ var vrboNav = {
         citySearch.forEach(test => {
             this.searchPage(browser, test)
         })
-    
+
     },
 
     replay: function (browser, foreach) {
@@ -46,16 +46,16 @@ var vrboNav = {
             .pause(1000)
             .clearValue('@searchLocation')
             .pause(1000)
-            this.setValue('@searchLocation', destination.search)
+        this.setValue('@searchLocation', destination.search)
             .pause(1000)
             .useXpath()
             .click('@searchBtn')
             .pause(500)
-            this.useXpath()
+        this.useXpath()
             .verify.elementPresent('@searchLocation', `"${destination.results}"`)
             .pause(1000)
             .click('@homeButton')
-           
+
         return this
     },
     login: function (browser, login) {
@@ -102,10 +102,10 @@ var vrboNav = {
             .click('@locationClick')
             .verify.elementPresent('//*/span[contains(text(),"Georgia")]')
             .click('@homeButton')
-            // .click('//div[@class="picker__overlay picker__overlay--selectable"][3]')
-            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
-            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
-            // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[2]')
+        // .click('//div[@class="picker__overlay picker__overlay--selectable"][3]')
+        // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
+        // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[0]')
+        // .click('(//span[@class="SVGIcon SVGIcon--16px flex-center"])[2]')
         // searchArray.forEach(search=>{
         //     this.infoEnter(browser, search)
         // })
@@ -214,7 +214,51 @@ module.exports = {
             selector: '//*/button[@id="site-header__login"]',
             locateStrategy: 'xpath'
         },
-        spotOne: 'div[data-suggestion-key="0"]',
-
+        spotOne: {
+            //updated selector, did not appear to be completed - missing locateStrategy and brackets
+            //also unsure of proper xpath - need to speak to teammates about what is needed
+            selector: 'div[data-suggestion-key="0"]',
+            locateStrategy: 'xpath'
+        },
+        tripBoardBtn: {
+            selector: '//*/span[@class="site-header-nav__icon-label"]',
+            locateStrategy: 'xpath'
+        },
+        newBoard: {
+            selector: '//*/div[@class="tripboard-summary-hit card"][0]',
+            locateStrategy: 'xpath'
+        },
+        newBoardModalInput: {
+            selector: '//*/input[@class="form-control"][0]',
+            locateStrategy: 'xpath'
+        },
+        newBoardModalCancel: {
+            selector: '//*/button[@class="btn btn-default landing-page__cancelbutton btn-sm"]',
+            locateStrategy: 'xpath'
+        },
+        newBoardModalCreate: {
+            selector: '//*/button[@class="btn btn-primary landing-page__button btn-sm"]',
+            locateStrategy: 'xpath'
+        },
+        // This is where it switches to the base URL of https://www.vrbo.com/tripboard
+        // Because I did things differently in my personal project, I'm not 100% sure whether 
+        // I should be creating a new pageObject at this point
+        newTbCard: {
+            selector: '//*/div[@class="tripboard-summary-hit card"][1]',
+            locateStrategy: 'xpath'
+        },
+        newTbCardInvite: {
+            selector: '//*/button[@class="btn btn-default btn-xs"][0]',
+            locateStrategy: 'xpath'
+        },
+        inviteFriendsLogin: {
+            selector: '//*/button[@class="btn btn-primary"][0]',
+            locateStrategy: 'xpath'
+        },
+        // Double checking strategy - not sure if signup is needed for automation
+        // Also, possible duplicate selector?
+        vrboSignUp: {
+            selector: '//*/'
+        }
     }
 }
