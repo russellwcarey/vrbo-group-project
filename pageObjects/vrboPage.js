@@ -83,7 +83,10 @@ var vrboNav = {
     },
     cleanUp: function (browser, cleanUp) {
         this
-            .click('//*/div[@class="site-header-nav__scratchpad"]')
+        .pause(2000)
+            .click('@tripBoard')
+            .click('@deleteDropdown')
+            .pause(1000)
             .click('@deleteBoard')
             .click('@confirmDelete')
         return this
@@ -188,7 +191,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         tripBoard: {
-            selector: '//*/div[@class="site-header-nav__scratchpad"]',
+            selector: '(//*/a[@rel="nofollow"])[1]',
             locateStrategy: 'xpath'
         },
         locationClick: {
@@ -223,12 +226,16 @@ module.exports = {
             selector: '//*/input[@type="password"]',
             locateStrategy: 'xpath'
         },
+        deleteDropdown:{
+            selector: '//*/div[@class="Dropdown tripboard-summary-hit__menu"]',
+            locateStrategy:'xpath'
+        },
         confirmDelete: {
             selector: '//*/button[@data-wdio="tripboard-summary__hit-delete--confirm"]',
             locateStrategy: 'xpath'
         },
         deleteBoard: {
-            selector: '//*/button[@class="btn btn-link tripboard-summary-hit__menu-remove btn-xs"]',
+            selector: '(//*/span[@class="btn__label"])[1]',
             locateStrategy: 'xpath'
         },
         loginDropdown: {
