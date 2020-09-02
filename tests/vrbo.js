@@ -1,41 +1,39 @@
+var obj = {};
 
-var obj = {}
-
-var vrboObject = require('../pageObjects/vrboPage')
-var citySearch = require('../testAsset/vrboAsset')
+var vrboObject = require('../pageObjects/vrboPage');
+var citySearch = require('../testAsset/vrboAsset');
 
 module.exports = {
     beforeEach: browser => {
-        obj = browser.page.vrboPage()
-        obj.navigate()
+        obj = browser.page.vrboPage();
+        obj.navigate();
         browser.maximizeWindow();
     },
     afterEach: browser => {
-        obj.end()
+        obj.end();
     },
     'first search': browser => {
         obj
-            .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France')
+            .searchHomePage('Saint-Tropez ', 'Saint-Tropez City Centre, Saint-Tropez, Var, France');
     },
     'After initial search': browser => {
         obj
-        .searchForEach()
+            .searchForEach();
     },
     "save function logged out": browser => {
 
         obj
-            .replay()
+            .replay();
     },
     "save function logged in": browser => {
         obj
             .login()
-            .replay()
-            
-    },
-    "clean up test case":browser=>{
-        obj
-        .login()
-        .cleanUp()
-    }
+            .replay();
 
+    },
+    "clean up test case": browser => {
+        obj
+            .login()
+            .cleanUp();
+    }
 }
